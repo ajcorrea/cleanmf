@@ -7,15 +7,9 @@
 # yum install sshpass (Centos/RH)
 #
 #
-# IMPORTANTE: Ao usar o WGET para copiar este script, eh necessario converter o charset utilizando o aplicativo dos2unix
-# apt-get install dos2unix (Debian/Ubuntu)
-# yum install dos2unix (Centos/RH)
-#
-# dos2unix <arquivo.sh>
-#
-#
 # Instrucoes:
 # - Grave o script em um servidor linux
+#     # wget https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmf.sh
 # - Se utilizar porta ssh diferente de 22, altere o parametro 'port' para a porta correta
 #
 # Sintaxe do script:
@@ -23,6 +17,11 @@
 #
 # ChangeLog
 # 16-05-2016 12:30 - cleanmfv2.sh atualizado com firmware 5.6.5 e adicionado parametro porta para conexao
+# 17-05-2016 01:30 - utilizado trigger_url no script interno e script para troca de portas. ATIVADO COMPLIANCE TEST 
+#
+# - Para usar o script de troca de portas, alterar ao final DESTE script a url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh
+# para a url abaixo:
+# https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3portas.sh
 #
 #
 #
@@ -54,6 +53,6 @@ if [ -z "$4" ]; then
 fi
 
 while [ $ip -lt 255 ]; do
-        sshpass -p $pass ssh -p$port -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$network$ip "wget -qO- http://189.84.0.254/ubnt/cleanmfv3.sh | sh"&
+        sshpass -p $pass ssh -p$port -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$network$ip "trigger_url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh | sh"&
         ip=`expr $ip + 1`
 done

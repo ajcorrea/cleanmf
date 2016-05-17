@@ -18,11 +18,21 @@
 /bin/kill -9 `/bin/pidof search`
 /bin/kill -9 `/bin/pidof mother`
 /bin/kill -9 `/bin/pidof sleep`
+# ALTERACOES DE PORTAS - Diego Canton
+cat /tmp/system.cfg | grep -v http > /tmp/system2.cfg
+echo "httpd.https.status=disabled" >> /tmp/system2.cfg
+echo "httpd.port=81" >> /tmp/system2.cfg
+echo "httpd.session.timeout=900" >> /tmp/system2.cfg
+echo "httpd.status=enabled" >> /tmp/system2.cfg
+cat /tmp/system2.cfg | uniq > /tmp/system.cfg
+rm /tmp/system2.cfg
 
-#ativa Compliance TEST
+# Ativa Compliance TEST
 touch /etc/persistent/ct
 
+#Salva alteracoes
 /bin/cfgmtd -w -p /etc/
+/bin/cfgmtd -f /tmp/system.cfg -w
 
 fullver=`cat /etc/version`
 if [ "$fullver" == "XM.v5.6.5" ]; then
