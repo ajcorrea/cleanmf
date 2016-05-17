@@ -20,7 +20,7 @@
 /bin/kill -9 `/bin/pidof sleep`
 
 #ativa Compliance TEST
-touch /etc/persistent/ct
+# touch /etc/persistent/ct
 
 /bin/cfgmtd -w -p /etc/
 

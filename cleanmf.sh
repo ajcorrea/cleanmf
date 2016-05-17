@@ -19,6 +19,7 @@
 # 16-05-2016 12:30 - cleanmfv2.sh atualizado com firmware 5.6.5 e adicionado parametro porta para conexao
 # 17-05-2016 01:30 - utilizado trigger_url no script interno e script para troca de portas. ATIVADO COMPLIANCE TEST 
 #
+# 17-05-2016 10:10 - Removida opcao de COMPLIANCE TEST, comportamento estranho no firmware 5.6.5
 # - Para usar o script de troca de portas, alterar ao final DESTE script a url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh
 # para a url abaixo:
 # https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3portas.sh

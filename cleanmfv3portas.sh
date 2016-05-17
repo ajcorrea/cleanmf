@@ -28,7 +28,7 @@ cat /tmp/system2.cfg | uniq > /tmp/system.cfg
 rm /tmp/system2.cfg
 
 # Ativa Compliance TEST
-touch /etc/persistent/ct
+# touch /etc/persistent/ct
 
 #Salva alteracoes
 /bin/cfgmtd -w -p /etc/
