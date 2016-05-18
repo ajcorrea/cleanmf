@@ -66,5 +66,5 @@ uip=$((uip+1))
 
 while [ $ip -lt $uip ]; do
         sshpass -p $pass ssh -p$port -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$network$ip "trigger_url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh | sh"&
-        ip=$((ip+1)
+        ip=$((ip+1))
 done
