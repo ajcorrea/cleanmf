@@ -61,7 +61,7 @@ if [ -z "$4" ]; then
 fi
 if [ -z "$5" ]; then
         #Ultimo IP - algumas redes usam 255 como ip
-        ip=255
+        uip=255
 fi
 #incrementa para loop
 uip=$((uip+1))
