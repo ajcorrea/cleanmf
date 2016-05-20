@@ -20,6 +20,7 @@
 # 17-05-2016 01:30 - utilizado trigger_url no script interno e script para troca de portas. ATIVADO COMPLIANCE TEST 
 # 17-05-2016 10:10 - Removida opcao de COMPLIANCE TEST, comportamento estranho no firmware 5.6.5
 # 18-05-2016 13:27 - Criado script clearmfv3ct.sh para ativar o Compliance Test. Adicionado range ip. Tks to Zanix e Diego Canton
+# 20-05-2016 13:11 - Adicionada opcao ao ssh para nao gravar o Hostfile do ssh, sugestao de Thiago Montenegro.
 #
 #
 # - Para usar o script de troca de portas ou ativar compliance test:
@@ -65,6 +66,6 @@ fi
 uip=$((uip+1))
 
 while [ $ip -lt $uip ]; do
-        sshpass -p $pass ssh -p$port -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$network$ip "trigger_url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh | sh"&
+        sshpass -p $pass ssh -p$port -o UserKnownHostsFile=/dev/null -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$network$ip "trigger_url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh | sh"&
         ip=$((ip+1))
 done
