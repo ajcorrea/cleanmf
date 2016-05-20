@@ -21,6 +21,7 @@
 # 17-05-2016 10:10 - Removida opcao de COMPLIANCE TEST, comportamento estranho no firmware 5.6.5
 # 18-05-2016 13:27 - Criado script clearmfv3ct.sh para ativar o Compliance Test. Adicionado range ip. Tks to Zanix e Diego Canton
 # 20-05-2016 13:11 - Adicionada opcao ao ssh para nao gravar o Hostfile do ssh, sugestao de Thiago Montenegro.
+# 20-05-2016 14:00 - Bug na verificacao de RANGE dos IPS
 #
 #
 # - Para usar o script de troca de portas ou ativar compliance test:
@@ -65,7 +66,7 @@ fi
 #incrementa para loop
 uip=$((uip+1))
 
-while [ $ip -lt $uip ]; do
+while [ "$ip" -lt "$uip" ]; do
         sshpass -p $pass ssh -p$port -o UserKnownHostsFile=/dev/null -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$network$ip "trigger_url https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv3.sh | sh"&
         ip=$((ip+1))
 done
