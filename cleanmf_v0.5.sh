@@ -84,11 +84,6 @@ if [ $ctrl != '3' ]; then
         exit 1;
 fi
 
-echo $user
-echo $pass
-echo $network
-
-
 #Funcao baseada na original de Florian (http://stackoverflow.com/users/1128705/florian-feldhaus)
 network_address_to_ips() {
   ips=()
