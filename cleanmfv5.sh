@@ -39,12 +39,9 @@ fi
 #Salva modificacoes...
 /bin/cfgmtd -w -p /etc/
 
-fullver=`cat /etc/version`
-if [ "$fullver" == "XM.v5.6.6" ]; then
-        echo "Atualizado... Done"
-        exit
-fi
-if [ "$fullver" == "XW.v5.6.6" ]; then
+fullver=`cat /etc/version | sed 's/XW.v//' | sed 's/XM.v//' | sed 's/TI.v//'`
+
+if [ "$fullver" == "5.6.6" ]; then
         echo "Atualizado... Done"
         exit
 fi
@@ -53,6 +50,7 @@ versao=`cat /etc/version | cut -d'.' -f1`
 cd /tmp
 rm -rf /tmp/firmware.bin
 rm -rf /tmp/X*.bin
+rm -rf /tmp/T*.bin
 
 if [ "$versao" == "XM" ]; then
         URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/XM.v5.6.6.29183.160526.1225.bin'        
