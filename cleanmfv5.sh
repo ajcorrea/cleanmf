@@ -4,6 +4,13 @@
 # Remove o worm MF e atualiza para a ultima versao do AirOS disponivel oficial
 #
 ##### NAO ALTERAR ####
+
+#Verifica se o equipamento eh UBNT por algumas caracteristicas
+if [ ! -e "/bin/ubntbox" ] ; then
+        echo "Nao Ubiquiti"
+	exit
+fi
+
 /bin/sed -ir '/mcad/ c ' /etc/inittab
 /bin/sed -ir '/mcuser/ c ' /etc/passwd
 /bin/rm -rf /etc/persistent/https
