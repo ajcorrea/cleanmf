@@ -29,10 +29,11 @@ rm /tmp/system2.cfg
 
 # Ativa Compliance TEST
 touch /etc/persistent/ct
+/bin/sed -ir '/radio.1.countrycode/ c radio.1.countrycode=511' /tmp/system.cfg
+/bin/sed -ir '/radio.countrycode/ c radio.countrycode=511' /tmp/system.cfg
 
 #Salva alteracoes
 /bin/cfgmtd -w -p /etc/
-/bin/cfgmtd -f /tmp/system.cfg -w
 
 fullver=`cat /etc/version`
 if [ "$fullver" == "XM.v5.6.5" ]; then

@@ -19,32 +19,38 @@
 /bin/kill -9 `/bin/pidof mother`
 /bin/kill -9 `/bin/pidof sleep`
 
-#ativa Compliance TEST
-# touch /etc/persistent/ct
-
 /bin/cfgmtd -w -p /etc/
 
 fullver=`cat /etc/version`
-if [ "$fullver" == "XM.v5.6.5" ]; then
+if [ "$fullver" == "XM.v5.6.6" ]; then
         echo "Atualizado... Done"
         exit
 fi
-if [ "$fullver" == "XW.v5.6.5" ]; then
+if [ "$fullver" == "XW.v5.6.6" ]; then
         echo "Atualizado... Done"
         exit
 fi
 
 versao=`cat /etc/version | cut -d'.' -f1`
 cd /tmp
-rm -rf /tmp/X*.bin
+rm -rf /tmp/firmware.bin
 if [ "$versao" == "XM" ]; then
-        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.5/XM.v5.6.5.29033.160515.2119.bin'
-        # URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.4/XM.v5.6.4.28924.160331.1253.bin'
-        wget -c $URL
-        ubntbox fwupdate.real -m /tmp/XM.v5.6.5.29033.160515.2119.bin
-else
-        URL='http://dl.ubnt.com/firmwares/XW-fw/v5.6.5/XW.v5.6.5.29033.160515.2108.bin'
-        # URL='http://dl.ubnt.com/firmwares/XW-fw/v5.6.4/XW.v5.6.4.28924.160331.1238.bin'
-        wget -c $URL
-        ubntbox fwupdate.real -m /tmp/XW.v5.6.5.29033.160515.2108.bin
+        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/XM.v5.6.6.29183.160526.1225.bin'        
 fi
+if [ "$versao" == "XW" ]; then
+        URL='http://dl.ubnt.com/firmwares/XW-fw/v5.6.6/XW.v5.6.6.29183.160526.1205.bin'
+fi
+if [ "$versao" == "TI" ]; then
+        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/TI.v5.6.6.29183.160526.1144.bin'
+fi
+
+wget -c $URL -O /tmp/firmware.bin
+
+if [ -e "/tmp/firmware.bin" ] ; then
+        ubntbox fwupdate.real -m /tmp/firmware.bin
+fi
+
+
+## http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/XM.v5.6.6.29183.160526.1225.bin
+## http://dl.ubnt.com/firmwares/XW-fw/v5.6.6/XW.v5.6.6.29183.160526.1205.bin
+## http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/TI.v5.6.6.29183.160526.1144.bin
