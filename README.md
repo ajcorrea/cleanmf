@@ -21,12 +21,12 @@ O Script utiliza o SSHPASS, para instalar:
 Instrucoes:
 -----------------------
 - Grave o script em um servidor linux
-- wget https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmfv5.sh
+- wget https://raw.githubusercontent.com/ajcorrea/cleanmf/master/cleanmf_v0.5.sh
 - Se utilizar porta ssh diferente de 22, altere o parametro 'port' para a porta correta
 
 
 Sintaxe do script:<br>
-./cleanmfv5.sh -u [usuario] -p [senha] -n 192.168.0.0/24
+./cleanmf_v0.5.sh -u [usuario] -p [senha] -n 192.168.0.0/24
 
 <br>
 ChangeLog
