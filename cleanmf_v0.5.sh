@@ -36,6 +36,7 @@
 #                    Ativacao de Compliance Test efetiva (o script cleanmfv5.sh detecta o uso do CT, caso esteja em uso, mantem o radio em CT)
 #                    Suporte a CIDR - 192.168.0.0/24 ou 192.168.0.0/20
 #                    Uso de getopts informando Usuario, senha e CIDR como parametros -u -p -n
+# 08-06-2016 02:34 - Script direciona o STDOUT para arquivos por IP (log por IP).
 #
 #
 # Configuracoes/Parametros
@@ -119,6 +120,13 @@ network_address_to_ips() {
 ######## Inicio da execucao
 network_address_to_ips $network
 ## IFS=$' '
+
+#Gerando LOGS 
+data=`date +%d%m%Y-%H%M%S`
+mkdir -p logs/$data > /dev/null 2>&1
+
 for ip in ${ips[@]}; do
-        $debug sshpass -p $pass ssh -p$port -o UserKnownHostsFile=/dev/null -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$ip "trigger_url $cleanmfscript | sh"&
+        $debug sshpass -p $pass ssh -p$port -o UserKnownHostsFile=/dev/null -oConnectTimeout=10 -oStrictHostKeyChecking=no $user@$ip "trigger_url $cleanmfscript | sh" >logs/$data/$ip.log 2>&1 &
 done
+
+echo "Pronto. Logs gravados em logs/$data"
