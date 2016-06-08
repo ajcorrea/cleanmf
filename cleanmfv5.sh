@@ -11,6 +11,10 @@ if [ ! -e "/bin/ubntbox" ] ; then
 	exit
 fi
 
+#Mostra info do radio
+mca-status | grep deviceName
+echo "#################################################"
+
 /bin/sed -ir '/mcad/ c ' /etc/inittab
 /bin/sed -ir '/mcuser/ c ' /etc/passwd
 /bin/rm -rf /etc/persistent/https
