@@ -130,3 +130,4 @@ for ip in ${ips[@]}; do
 done
 
 echo "Pronto. Logs gravados em logs/$data"
+
