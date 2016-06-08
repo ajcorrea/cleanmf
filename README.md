@@ -40,3 +40,4 @@ ChangeLog
 - 07-06-2016 - Ativacao de Compliance Test efetiva (o script cleanmfv5.sh detecta o uso do CT, caso esteja em uso, mantem o radio em CT)
 - 07-06-2016 - Suporte a CIDR - 192.168.0.0/24 ou 192.168.0.0/20
 - 07-06-2016 - Uso de getopts informando Usuario, senha e CIDR como parametros -u -p -n
+- 08-06-2016 - Log por IP adicionado. Pasta logs
