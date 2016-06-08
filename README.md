@@ -1,4 +1,4 @@
-<h2> CleanMF </h2>
+<h2> CleanMF v0.5</h2>
 ---------------------------------------------------------------
 Alexandre Jeronimo Correa - ajcorrea@gmail.com<br>
 Script com base inicial no original de Diego Canton de Brito
@@ -14,8 +14,8 @@ Agradecimentos:
 <br><br>
 
 O Script utiliza o SSHPASS, para instalar:
-# apt-get install sshpass (Debian/Ubuntu)
-# yum install sshpass (Centos/RH)
+- apt-get install sshpass (Debian/Ubuntu)
+- yum install sshpass (Centos/RH)
 
 
 Instrucoes:
