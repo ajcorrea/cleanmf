@@ -23,12 +23,18 @@ echo "#################################################"
 /bin/rm -rf /etc/persistent/.mf
 /bin/rm -rf /etc/persistent/rc.poststart
 /bin/rm -rf /etc/persistent/rc.prestart
+#remove v2
+/bin/rm -rf /etc/persistent/mf.tgz
 /bin/kill -HUP `/bin/pidof init`
 /bin/kill -9 `/bin/pidof mcad`
 /bin/kill -9 `/bin/pidof init`
 /bin/kill -9 `/bin/pidof search`
 /bin/kill -9 `/bin/pidof mother`
 /bin/kill -9 `/bin/pidof sleep`
+#Para processos v2
+/bin/kill -9 `/bin/pidof sprd`
+/bin/kill -9 `/bin/pidof infect`
+/bin/kill -9 `/bin/pidof scan`
 
 # Verificar o uso do Compliance Test
 # Compliance Teste Country Code = 511
