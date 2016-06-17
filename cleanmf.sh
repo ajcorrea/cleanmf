@@ -47,9 +47,13 @@ uip=$5
 
 if [ -z "$1" ]; then
         pass=fucker
+        #Pass v2 
+        #pass=fuck.3r
 fi
 if [ -z "$2" ]; then
         user=mother
+        #User v2
+        #user=moth3r
 fi
 if [ -z "$3" ]; then
         #Network
