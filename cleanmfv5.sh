@@ -51,7 +51,7 @@ fi
 
 fullver=`cat /etc/version | sed 's/XW.v//' | sed 's/XM.v//' | sed 's/TI.v//'`
 
-if [ "$fullver" == "5.6.6" ]; then
+if [ "$fullver" == "5.6.9" ]; then
         echo "Atualizado... Done"
         exit
 fi
@@ -63,13 +63,13 @@ rm -rf /tmp/X*.bin
 rm -rf /tmp/T*.bin
 
 if [ "$versao" == "XM" ]; then
-        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/XM.v5.6.6.29183.160526.1225.bin'        
+        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.9/XM.v5.6.9.29546.160819.1157.bin'        
 fi
 if [ "$versao" == "XW" ]; then
-        URL='http://dl.ubnt.com/firmwares/XW-fw/v5.6.6/XW.v5.6.6.29183.160526.1205.bin'
+        URL='http://dl.ubnt.com/firmwares/XW-fw/v5.6.9/XW.v5.6.9.29546.160819.1146.bin'
 fi
 if [ "$versao" == "TI" ]; then
-        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/TI.v5.6.6.29183.160526.1144.bin'
+        URL='http://dl.ubnt.com/firmwares/XN-fw/v5.6.9/TI.v5.6.9.29546.160819.1135.bin'
 fi
 
 wget -c $URL -O /tmp/firmware.bin
@@ -79,6 +79,6 @@ if [ -e "/tmp/firmware.bin" ] ; then
 fi
 
 
-## http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/XM.v5.6.6.29183.160526.1225.bin
-## http://dl.ubnt.com/firmwares/XW-fw/v5.6.6/XW.v5.6.6.29183.160526.1205.bin
-## http://dl.ubnt.com/firmwares/XN-fw/v5.6.6/TI.v5.6.6.29183.160526.1144.bin
+## http://dl.ubnt.com/firmwares/XN-fw/v5.6.9/XM.v5.6.9.29546.160819.1157.bin
+## http://dl.ubnt.com/firmwares/XW-fw/v5.6.9/XW.v5.6.9.29546.160819.1146.bin
+## http://dl.ubnt.com/firmwares/XN-fw/v5.6.9/TI.v5.6.9.29546.160819.1135.bin
